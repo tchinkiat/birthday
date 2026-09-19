@@ -212,6 +212,62 @@
     min-height: 150px;
     transition: .25s ease;
   }
+  .heart-button {
+  position: relative;
+  width: 130px;
+  height: 115px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  transition: transform 0.2s ease;
+}
+
+/* Heart shape */
+.heart-button::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  border-radius: 10px;
+}
+
+/* Heart's two rounded tops */
+.heart-button::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  border-radius: 50%;
+  top: 7px;
+  left: 25px;
+  box-shadow: -32px 0 0 var(--accent);
+}
+
+.heart-button span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  width: 75px;
+  line-height: 1.2;
+}
+
+.heart-button:hover {
+  transform: scale(1.08);
+}
+
+.heart-button:active {
+  transform: scale(0.92);
+}
   .reason:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
   .reason .num { color:var(--accent); font-weight:800; font-size:13px; }
   .reason h3 { margin: 8px 0 4px; font-size:18px; }
@@ -335,7 +391,9 @@
     <div class="hero-actions">
       <a class="btn btn-primary" href="#memories">Our memories ↓</a>
       <button class="btn btn-secondary" id="heartBtn">Send some love ♡</button>
-      <button id="loveButton">Send More Love ♡</button>
+      <button id="loveButton" class="heart-button">
+        <span>Send More Love</span>
+      </button>
     </div>
   </div>
   <div class="scroll-note">scroll slowly · there is a surprise at the end</div>
